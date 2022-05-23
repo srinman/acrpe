@@ -13,3 +13,11 @@ module "create_acr_pe" {
     pepsubnet = each.value.additional_pep_subnetname
     pepvnetrg = each.value.additional_pep_vnetrg
 }
+
+
+module "create_private_dns_cname_record" {
+    source = "./acrcname"
+    dnsrg = "acrblktest"
+    dnsentryname = "srinmanblktestx"
+    dnsentrytarget = "srinmanblktestx.azure.srinman.com"
+}
